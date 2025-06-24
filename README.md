@@ -4,7 +4,7 @@ A full-stack Slot Booking System built using **Next.js 15** for the frontend and
 
 ---
 
-## 🌍 Tech Stack
+## Tech Stack
 
 | Area       | Stack                                |
 | ---------- | ------------------------------------ |
@@ -60,7 +60,7 @@ A full-stack Slot Booking System built using **Next.js 15** for the frontend and
 
 ---
 
-## 🔁 CRON Jobs Setup
+## CRON Jobs Setup
 
 This project includes two scheduled cron jobs to manage slot generation automatically:
 
@@ -135,7 +135,7 @@ Runs on: `http://localhost:3000`
 
 ---
 
-## 🔁 API Overview
+## API Overview
 
 ### Auth
 
