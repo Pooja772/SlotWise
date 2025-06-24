@@ -48,7 +48,18 @@ export class SlotService {
   }
 
   getAllSlots = async () => {
-    return await Slots.find();
+    const now = new Date();
+    const istOffset = 5.5 * 60; // IST is UTC +5:30 in minutes
+    const istTime = new Date(now.getTime() + istOffset * 60000);
+    console.log(
+      "IST ISO String:",
+      istTime.toISOString().replace("Z", "+05:30")
+    );
+    const dateTime = istTime.toISOString().replace("Z", "+05:30")
+
+    return await Slots.find({
+      datetime: { $gte: dateTime },
+    });
   };
 }
 
