@@ -32,6 +32,58 @@ A full-stack Slot Booking System built using **Next.js 15** for the frontend and
 * **Email**: `admin@yopmail.com`
 * **Password**: `Admin@1234`
 
+---
+
+## Thinking Log
+
+### 1. **Project Scope Understanding**
+
+* Goal: Build a full-stack **Booking System** with slot selection, user booking, and admin visibility.
+* Decision: Use **Next.js** for frontend (React + SSR), **Node.js + Express + MongoDB** for backend.
+* Justification: Familiar tech stack, speed of development, scalability.
+
+### 2. **Backend Design**
+
+* Modeled `Slot`, `Booking`, `User` & `Roles` schemas in MongoDB using Mongoose.
+* **Challenge:** Generate future slots excluding weekends.
+  *  Solution: Implemented a **cron job** that creates slots for the next 7 days, skipping Saturday and Sunday, from 9 AM to 4 PM.
+* Added second **cron job** that triggers daily at 12:01 AM to append a new day of slots.
+
+### 3. **API Design**
+
+* RESTful API structure (`GET /slots`, `POST /bookings`, etc.).
+* Used **RTK Query** for frontend integration to simplify data fetching.
+* Validated user inputs (e.g. email format, empty name check).
+
+### 4. **Frontend Strategy**
+
+* Created a visually intuitive slot listing using **MUI Cards**.
+* Designed a floating **FAB** button to open the booking form upon slot selection.
+* Booking form pre-fills `date` and `timeSlot` and takes user input for `name` and `email`.
+
+### 5. **User Experience Enhancements**
+
+* Used **Snackbars** for user feedback (success/error messages).
+* After booking, a modal shows **Booking Confirmation** with details from the API response.
+* Integrated a **logout icon** to navigate back to login.
+
+### 6. **Admin & Listing View**
+
+* Built an **Admin Booking Listing** page using `DataGrid`.
+* Decision to remove pagination for simplicity and show all records with scrolling.
+
+### 7. **Deployment & Hosting**
+
+* Hosted frontend on **Render**.
+* Created default user and admin credentials for walkthrough (added to README).
+
+### 8. **Final Checks**
+
+* Wrote a comprehensive **README.md** with instructions, setup, login info.
+* Logged time spent and key decisions made to maintain transparency.
+
+---
+
 ## Project Features
 
 ### Frontend 
@@ -180,6 +232,25 @@ Runs on: `http://localhost:3000`
 * Role-based auth (admin, user)
 * Email notifications
 * Admin dashboard to manage slots/bookings
+
+---
+
+## Time Log
+
+| Date       | Task Description                               | Duration (hh:mm) |
+|------------|------------------------------------------------|------------------|
+| 2025-06-22 | Project setup, repo creation, environment setup| 02:30            |
+| 2025-06-22 | Backend API planning and slot model design     | 02:00            |
+| 2025-06-22 | Added logger, response and error handling setup| 02:00            |
+| 2025-06-23 | Slot creation API & cron job (7-day generation)| 03:00            |
+| 2025-06-23 | User booking API + validations                 | 02:00            |
+| 2025-06-24 | Frontend setup with MUI and Next.js            | 01:30            |
+| 2025-06-24 | Slot listing UI, booking form & integration    | 03:30            |
+| 2025-06-24 | Booking confirmation modal and testing         | 01:45            |
+| 2023-06-25 | Deployment and hosting using render            | 01:30            |
+| 2025-06-25 | Readme, walkthrough prep, final QA             | 01:15            |
+
+** Total Time Spent:** 20 hours 30 minutes
 
 ---
 
